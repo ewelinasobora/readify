@@ -68,22 +68,28 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
+  const fileName = process.argv[2];
+
+  isFileProvided(fileName)
+
   inquirer
     .prompt(
       requirements
     )
     .then((data) => {
-      const fileName = process.argv[2];
       const generatedData = generateMarkdown(data);
+
       writeToFile(fileName, generatedData)
     })
     .catch((error) => {
-      if (error.isTtyError) {
-        // Prompt couldn't be rendered in the current environment
-      } else {
-        // Something else went wrong
-      }
+
     });
+}
+
+const isFileProvided = fileName => {
+  if (!fileName) {
+    throw new Error("fileName was not provided.");
+  }
 }
 
 // function call to initialize program
