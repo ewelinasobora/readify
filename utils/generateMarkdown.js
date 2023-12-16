@@ -1,27 +1,20 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  const content = `# ${data.title}\n`
-  const sectionsContent = sections(data);
+  const content = `# ${data.title}\n`;
+  const sections = data.sections.split(",");
 
-  return content + sectionsContent;
-}
+  let i = 0;
+  sectionContent = "";
 
-// function to generate sections
-function sections(data) {
-  let sectionsContent = "";
-  data.sections.split(",").forEach(section => {
-
-    const modifiedSection = section[0].toUpperCase() + section.slice(1).toLowerCase();
-
-    if (modifiedSection === "Description") {
-      sectionsContent += `## ${section + "\n" + data.description}` + "\ntest";
+  while (i < sections.length) {
+    if (sections[i] === "Description") {
+      sectionContent += `## ${sections[i]}\n\n${data.description}\n\n`;
     }
+    i++;
   }
-  );
-  return sectionsContent;
+
+  return content + sectionContent;
 }
-
-
 
 
 module.exports = generateMarkdown;
