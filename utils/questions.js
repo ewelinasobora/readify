@@ -69,6 +69,12 @@ const questions = [
     type: 'input',
     message: 'Enter your email address:',
     when: (answers) => answers.sections.split(",").includes("Questions")
+  },
+  {
+    name: 'other',
+    type: 'input',
+    message: 'Enter the contents of the Other section:',
+    when: (answers) => answers.sections.split(",").includes(this.other)
   }
 ];
 
