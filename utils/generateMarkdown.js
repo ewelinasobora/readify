@@ -1,35 +1,45 @@
+function sectionTemplate(sectionTitle, sectionContent) {
+  return `## ${sectionTitle}\n\n${sectionContent}\n\n`;
+}
 // function to generate markdown for README
 function generateMarkdown(data) {
-  const content = `# ${data.title}\n`;
-  const sections = data.sections.split(",");
+  const { title, sections, description, tableOfContents, installation, usage, license, contributing, tests, questions, other } = data;
+  let sectionContent = "";
 
-  sectionContent = "";
-
-  sections.forEach(section => {
-    if (section === "Description") {
-      sectionContent += `## ${section}\n\n${data.description}\n\n`;
-    } else if (section === "Table of Contents") {
-      sectionContent += `## ${section}\n\n${data.tableOfContents}\n\n`;
-    } else if (section === "Installation") {
-      sectionContent += `## ${section}\n\n${data.installation}\n\n`;
-    } else if (section === "Usage") {
-      sectionContent += `## ${section}\n\n${data.usage}\n\n`;
-    } else if (section === "License") {
-      sectionContent += `## ${section}\n\n${data.license}\n\n`;
-    } else if (section === "Contributing") {
-      sectionContent += `## ${section}\n\n${data.contributing}\n\n`;
-    } else if (section === "Tests") {
-      sectionContent += `## ${section}\n\n${data.tests}\n\n`;
-    } else if (section === "Questions") {
-      sectionContent += `## ${section}\n\n${data.questions}\n\n`;
-    } else {
-      sectionContent += `## ${section}\n\n${data.other}\n\n`;
+  sections.split(",").forEach(section => {
+    console.log(section);
+    switch (section.toLowerCase()) {
+      case "description":
+        sectionContent += sectionTemplate(section, description);
+        break;
+      case "table of contents":
+        sectionContent += sectionTemplate(section, tableOfContents);
+        break;
+      case "installation":
+        sectionContent += sectionTemplate(section, installation);
+        break;
+      case "usage":
+        sectionContent += sectionTemplate(section, usage);
+        break;
+      case "license":
+        sectionContent += sectionTemplate(section, license);
+        break;
+      case "contributing":
+        sectionContent += sectionTemplate(section, contributing);
+        break;
+      case "tests":
+        sectionContent += sectionTemplate(section, tests);
+        break;
+      case "questions":
+        sectionContent += sectionTemplate(section, questions);
+        break;
+      default:
+        sectionContent += sectionTemplate(section, other);
+        break;
     }
   });
 
-  return content + sectionContent;
-
+  return `# ${title}\n${sectionContent}`;
 }
-
 
 module.exports = generateMarkdown;
