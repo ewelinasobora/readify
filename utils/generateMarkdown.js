@@ -1,3 +1,4 @@
+// function to generate section template
 function sectionTemplate(sectionTitle, sectionContent) {
   return `## ${sectionTitle}\n\n${sectionContent}\n\n`;
 }
