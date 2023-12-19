@@ -17,12 +17,6 @@ const questions = [
     when: (answers) => answers.sections.split(",").includes("description")
   },
   {
-    name: 'tableOfContents',
-    type: 'input',
-    message: 'Enter the contents of the Table Contents section:',
-    when: (answers) => answers.sections.split(",").includes("table of contents")
-  },
-  {
     name: 'installation',
     type: 'input',
     message: 'Enter the contents of the Installation section:',
@@ -51,12 +45,6 @@ const questions = [
     type: 'input',
     message: 'Enter the contents of the Tests section:',
     when: (answers) => answers.sections.split(",").includes("tests")
-  },
-  {
-    name: 'questions',
-    type: 'input',
-    message: 'Enter the contents of the Questions section:',
-    when: (answers) => answers.sections.split(",").includes("questions")
   },
   {
     name: 'github',
