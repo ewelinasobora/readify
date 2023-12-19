@@ -1,13 +1,13 @@
 function sectionTemplate(sectionTitle, sectionContent) {
   return `## ${sectionTitle}\n\n${sectionContent}\n\n`;
 }
+
 // function to generate markdown for README
 function generateMarkdown(data) {
-  const { title, sections, description, tableOfContents, installation, usage, license, contributing, tests, questions, other } = data;
+  const { sections, title, description, tableOfContents, installation, usage, license, contributing, tests, questions, other, github, email } = data;
   let sectionContent = "";
 
   sections.split(",").forEach(section => {
-    console.log(section);
     switch (section.toLowerCase()) {
       case "description":
         sectionContent += sectionTemplate(section, description);
@@ -39,7 +39,9 @@ function generateMarkdown(data) {
     }
   });
 
-  return `# ${title}\n${sectionContent}`;
+  const contactSection = `## Contact\n\nGitHub: ${github}\nEmail: ${email}\n\n`;
+
+  return `# ${title}\n${sectionContent}${contactSection}`;
 }
 
 module.exports = generateMarkdown;
