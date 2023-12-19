@@ -34,14 +34,14 @@ function generateMarkdown(data) {
         sectionContent += sectionTemplate(section, questions);
         break;
       default:
-        sectionContent += sectionTemplate(section, other);
+        sectionContent += sectionTemplate(section, license);
         break;
     }
   });
 
   const contactSection = `## Contact\n\nGitHub: ${github}\nEmail: ${email}\n\n`;
-
-  return `# ${title}\n${sectionContent}${contactSection}`;
+  const licenseBadge = `![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)`;
+  return `${licenseBadge} \n # ${title}\n ## ${sectionContent}${contactSection}`;
 }
 
 module.exports = generateMarkdown;
