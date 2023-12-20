@@ -5,9 +5,8 @@ const questions = require("./utils/questions");
 
 // function to write README file
 function writeToFile(fileName, data) {
-  console.log("Before writing to file")
   fs.appendFile(fileName, data, (err) => {
-    console.log("Inside appendFile")
+    console.log("Writing to file")
     if (err) throw err;
     JSON.stringify(data)
     console.log("Data is appended to file successfully.");
