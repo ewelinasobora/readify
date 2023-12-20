@@ -1,6 +1,10 @@
+# ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
 # Readify
 
 This is a command-line application that dynamically generates a professional README.md file from a user's input.
+
+[DEMO](https://drive.google.com/file/d/16R8wGV3ttuU97CGQILl5dZ-i9aybNM2K/view)
 
 ## Table of Contents
 
@@ -14,8 +18,6 @@ This is a command-line application that dynamically generates a professional REA
 When a user is prompted for information about the application repository, a high-quality, professional README.md is generated with:
 
 - The title of my project
-
-- Sections entitled:
 
 - Description
 
