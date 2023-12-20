@@ -29,10 +29,17 @@ const questions = [
     when: (answers) => answers.sections.split(",").includes("usage")
   },
   {
+    name: 'licenseType',
+    type: 'list',
+    message: 'What type of license does your project have?',
+    choices: ['MIT', 'Apache', 'GPL', 'BSD', 'Other'],
+    when: (answers) => answers.sections.split(",").includes("license")
+  },
+  {
     name: 'license',
     type: 'input',
     message: 'Enter the contents of the License section:',
-    when: (answers) => answers.sections.split(",").includes("License")
+    when: (answers) => answers.sections.split(",").includes("license")
   },
   {
     name: 'contributing',

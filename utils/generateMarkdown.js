@@ -22,8 +22,9 @@ function tableOfContentsTemplate(sections) {
 
 // function to generate markdown for README
 function generateMarkdown(data) {
-  const { sections, title, description, installation, usage, license, contributing, tests, other, github, email } = data;
+  const { sections, title, description, installation, usage, license, contributing, tests, other, github, email, licenseType } = data;
   let sectionContent = "";
+  let badges = "";
 
   sections.split(",").forEach(section => {
     switch (section.toLowerCase()) {
@@ -37,6 +38,7 @@ function generateMarkdown(data) {
         sectionContent += sectionTemplate(section, usage);
         break;
       case "license":
+        badges += `![GitHub license](https://img.shields.io/badge/license-${licenseType}-blue.svg)`;
         sectionContent += sectionTemplate(section, license);
         break;
       case "contributing":
@@ -54,8 +56,7 @@ function generateMarkdown(data) {
     }
   });
 
-  const licenseBadge = `![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)`;
-  return `${licenseBadge}\n\n# ${modifySection(title)}\n${tableOfContentsTemplate(sections)}${sectionContent}`;
+  return `${badges}\n\n# ${modifySection(title)}\n${tableOfContentsTemplate(sections)}${sectionContent}`;
 }
 
 module.exports = generateMarkdown;
